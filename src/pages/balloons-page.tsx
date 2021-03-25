@@ -1,10 +1,12 @@
 import React from 'react'
-
+import { AppLayout } from '../layout/app-layout/app-layout'
 
 export const BalloonsPage: React.FC = () => {
   return(
-    <div>
-      Balloons Page
-    </div>
+    <AppLayout>
+      <div>
+        Balloons Page
+      </div>
+    </AppLayout>
   )
 }

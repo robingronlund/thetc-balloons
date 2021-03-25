@@ -1,0 +1,39 @@
+@import "/colors";
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  position: relative;
+  min-height: 100%;
+}
+
+ul,
+li,
+dl {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+
+a {
+  color: $color-link-text;
+  text-decoration: none;
+  transition: color .24s ease-in-out;
+
+  &:hover {
+    color: lighten($color-link-text, 8%);
+  }
+}

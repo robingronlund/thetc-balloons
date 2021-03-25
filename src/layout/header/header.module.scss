@@ -1,0 +1,36 @@
+@import "../../styles/colors";
+
+.header {
+  display: flex;
+  flex: 0;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+  background-color: $color-header-background;
+  color: lighten($color: $rolling-stone, $amount: 10%);
+}
+
+.link {
+  display: flex;
+  align-items: center;
+}
+
+.image {
+  height: 80px;
+}
+
+.cartLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 70px;
+  background-color: $color-header-background-alt;
+  border-left: 1px solid $color-header-text;
+  box-shadow: inset 0 -1px 0 $color-header-background-alt;
+  color: $white;
+
+  &:hover {
+    color: lighten($color: $color-header-text, $amount: 10%)
+  }
+}
