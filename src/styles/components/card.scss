@@ -1,0 +1,14 @@
+.card {
+  background-color: #fff;
+  border-radius: 4px;
+  border: 1px solid rgba(158,170,178,0.2);
+  background-clip: padding-box;
+  text-align: center;
+  color: black;
+  background: #ffffff;
+  padding: 24px;
+
+  &:hover {
+    box-shadow: 0 4px 6px 4px #0000001a;
+  }
+}

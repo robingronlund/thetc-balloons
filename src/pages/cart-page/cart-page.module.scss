@@ -1,13 +1,13 @@
 @import "../../styles/colors.scss";
 
-.card {
-  flex-flow: column;
-  margin: 8px;
+.actions {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .button {
   height: 30px;
-  width: 150px;
+  width: 250px;
   background-color: $color-button-primary;
 
   &:hover {

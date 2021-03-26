@@ -1,6 +1,27 @@
-.cardWrapper {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-auto-rows: auto;
-  column-gap: 12px;
+@import "../../styles/breakpoints.scss";
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 0;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
+}
+
+.list__item {
+  display: flex;
+  margin: 24px 0 0 0;
+
+  @include medium {
+    flex-flow: column;
+    flex-basis: 33%;
+  }
+
+  &:last-child{
+    justify-content: start;
+  }
 }

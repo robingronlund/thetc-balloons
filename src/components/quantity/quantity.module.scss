@@ -1,0 +1,24 @@
+.quantityOuterWrapper {
+  display: flex;
+  flex-flow: column;
+  text-align: start;
+  margin-top: 14px;
+  & > label {
+    line-height: 1.5;
+  }
+}
+
+.quantityInputWrapper {
+  display: flex;
+}
+
+.quantitySpin{
+  width: 25px;
+  height: 30px;
+}
+
+.quantityInput {
+  height: 30px;
+  width: 40px;
+  text-align: center;
+}

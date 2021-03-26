@@ -1,0 +1,45 @@
+@import "../../styles/colors";
+
+.card {
+  display: flex;
+  justify-content: space-between;
+  &:not(:last-child) {
+    border-bottom: 1px;
+  }
+
+  &:hover {
+    > i {
+      color: $color-button-warning;
+    }
+  }
+}
+
+.image {
+  width: 80px;
+  height: 60px;
+  background-color: blue;
+}
+
+.details {
+  display: flex;
+  flex-flow: column;
+  align-items: start;
+  margin-left: 12px;
+  margin-right: 32px;
+}
+
+.price {
+  font-size: 18px;
+  font-weight: 500;
+  align-self: flex-end;
+  margin-top: 0;
+  margin-left: auto;
+}
+
+.remove {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  color: #e0e4e6;
+  cursor: pointer;
+}

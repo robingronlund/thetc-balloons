@@ -1,11 +1,19 @@
 import React from 'react';
-import { BalloonsPage } from './pages/balloons-page';
+import { Router } from "@reach/router";
+
+import { BalloonsPage } from './pages/balloons-page/index';
+import { BalloonDetailsPage } from './pages/ballon-details-page/index';
+import { CartPage } from './pages/cart-page';
 
 import './styles/global.scss'
 
 function App() {
   return (
-    <BalloonsPage></BalloonsPage>
+    <Router>
+      <BalloonsPage path="/" />
+      <BalloonDetailsPage path="balloon/:id"/>
+      <CartPage path="cart"></CartPage>
+    </Router>
   );
 }
 

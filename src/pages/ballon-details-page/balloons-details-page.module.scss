@@ -1,0 +1,47 @@
+@import "../../styles/colors";
+
+.detailsMain {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex: 1 0;
+  justify-content: center;
+  padding-top: 32px;
+}
+
+.detailsTitle {
+  display: flex;
+  margin-top: 0;
+}
+
+.detailsDescription {
+  margin-left: 24px;
+}
+
+.detailsImage {
+  display: flex;
+  background-color: blue;
+  width: 200px;
+  height: 300px;
+}
+
+.detailsInfo {
+  display: flex;
+  flex-flow: column;
+  text-align: start;
+
+  ul {
+    line-height: 1.7;
+  }
+}
+
+.button {
+  height: 30px;
+  width: 150px;
+  margin-top: 16px;
+  background-color: $color-button-primary;
+
+  &:hover {
+    $color-button-primary-hover: #46b5ec;
+  }
+}

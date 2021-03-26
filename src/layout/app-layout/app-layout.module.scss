@@ -6,7 +6,6 @@
   flex-direction: column;
 }
 
-
 .mainWrapper {
   display: flex;
   flex: 1;
@@ -16,6 +15,13 @@
 }
 
 .contentWrapper {
-  margin: 32px auto;
-  padding: 0 24px;
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  height: auto;
+
+  > h1 {
+    text-align: center;
+  }
 }
