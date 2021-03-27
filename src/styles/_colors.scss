@@ -5,21 +5,30 @@ $curious-blue: #158fcb;
 $shark: #272C33;
 $rolling-stone: #758189;
 $picton-blue: #21acef;
-$white-lilac: #f6fafc;
 $white: #fff;
 $thunderbird: #de3617;
+$night-rider: #7a868e59;
+$dove-gray: #737171;
+$hit-gray: #9eaab2;
+$iron: #cfd5d9;
 
 $color-header-background: $midnight-black;
 $color-header-background-alt: $shark;
-$color-header-border: lighten($color: #7a868e59, $amount: 2%);
+$color-header-border: lighten($color: $night-rider, $amount: 2%);
 $color-header-text: lighten($color: $rolling-stone, $amount: 10%);
 
 $color-background-main: $alabaster;
 $color-background-alt: $rolling-stone;
 
+$color-primary-text: $hit-gray;
+$color-secondary-text: $dove-gray;
+$color-icon: $iron;
+
 $color-button-warning: $thunderbird;
 
 $color-link-text: $picton-blue;
 
-$color-button-primary: #158fcb;
-$color-button-primary-hover: #46b5ec;
+$color-button-primary: $curious-blue;
+$color-button-primary-hover: $picton-blue;
+$color-button-secondary: #98a4b0;
+$color-button-sendary-hover: #c6cdd3;
