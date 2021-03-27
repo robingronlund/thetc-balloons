@@ -1,0 +1,59 @@
+{
+  "balloons": [
+    {
+      "id": "blue",
+      "name": "Light Blue Heart Balloon",
+      "color": "BLUE",
+      "imageUrl": "/balloons/heart-blue.jpg",
+      "description": "A blue balloon, great for occasions involving hearts.",
+      "variant": "HEART",
+      "price": 10,
+      "availableSince": "2020-05-13T13:00:00Z",
+      "cursor": "Ymx1ZQ=="
+    },
+    {
+      "id": "blue-2",
+      "name": "Blue Heart Balloon",
+      "color": "BLUE",
+      "imageUrl": "/balloons/heart-blue2.jpg",
+      "description": "A dark blue balloon in the shape of a heart.",
+      "variant": "HEART",
+      "price": 25,
+      "availableSince": "2020-06-18T13:00:00Z",
+      "cursor": "Ymx1ZS0y"
+    },
+    {
+      "id": "heart-orange",
+      "name": "Orange Heart Balloon",
+      "color": "ORANGE",
+      "imageUrl": "/balloons/heart-orange.jpg",
+      "description": "An orange heart-shaped balloon, just like grandma used to make.",
+      "variant": "HEART",
+      "price": 500,
+      "availableSince": "2020-12-13T13:00:00Z",
+      "cursor": "aGVhcnQtb3Jhbmdl"
+    },
+    {
+      "id": "heart-pink",
+      "name": "Pink Heart Balloon",
+      "color": "PINK",
+      "imageUrl": "/balloons/heart-pink.jpg",
+      "description": "A pink heart, like red but less red.",
+      "variant": "HEART",
+      "price": 12,
+      "availableSince": "2020-05-20T13:00:00Z",
+      "cursor": "aGVhcnQtcGluaw=="
+    },
+    {
+      "id": "heart-red",
+      "name": "Red Heart Balloon",
+      "color": "RED",
+      "imageUrl": "/balloons/heart-red2.jpg",
+      "description": "A red heart balloon, very traditional, very exciting.",
+      "variant": "HEART",
+      "price": 14,
+      "availableSince": "2020-12-09T13:00:00Z",
+      "cursor": "aGVhcnQtcmVk"
+    }
+  ]
+}
