@@ -17,25 +17,26 @@
 }
 
 .image {
-  width: 80px;
-  height: 60px;
+  width: auto;
+  height: 80px;
   background-color: blue;
+  border-radius: 4px;
 }
 
 .details {
   display: flex;
   flex-flow: column;
-  align-items: start;
+  align-items: flex-start;
   margin-left: 12px;
-  margin-right: 32px;
+  margin-right: auto;
+  color: #737171;
 }
 
 .price {
-  font-size: 18px;
   font-weight: 500;
-  align-self: flex-end;
-  margin-top: 0;
-  margin-left: auto;
+  font-size: 18px;
+  display: flex;
+  align-items: flex-end;
 }
 
 .remove {

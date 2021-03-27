@@ -1,4 +1,16 @@
-.quantityOuterWrapper {
+.priceWrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: flex-end;
+
+  & > label {
+    font-weight: 500;
+    font-size: 24px;
+  }
+}
+
+.outerWrapper {
   display: flex;
   flex-flow: column;
   text-align: start;
@@ -8,16 +20,16 @@
   }
 }
 
-.quantityInputWrapper {
+.inputWrapper {
   display: flex;
 }
 
-.quantitySpin{
+.spin{
   width: 25px;
   height: 30px;
 }
 
-.quantityInput {
+.input {
   height: 30px;
   width: 40px;
   text-align: center;

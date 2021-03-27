@@ -11,7 +11,7 @@ function App() {
   return (
     <Router>
       <BalloonsPage path="/" />
-      <BalloonDetailsPage path="balloon/:id"/>
+      <BalloonDetailsPage path="balloons/:id"/>
       <CartPage path="cart"></CartPage>
     </Router>
   );

@@ -1,44 +1,55 @@
-import React, { ChangeEvent, useState } from 'react'
-import { RouteComponentProps } from "@reach/router";
+import React from 'react'
+import { RouteComponentProps, useParams } from "@reach/router";
 import { AppLayout } from '../../layout/app-layout';
 
-import styles from './balloons-details-page.module.scss'
 import { Quantity } from '../../components/quantity';
+import * as api from '../../data/balloons.json'
 
-interface Cart {
-  id: number
-  product: string
+import styles from './balloons-details-page.module.scss'
+
+interface Balloon {
+  id: string
+  name: string
+  imageUrl: string
+  description: string
+  color: string
+  variant: string
   price: number
+  availableSince: string
+  cursor: string
 }
 
-export const BalloonDetailsPage: React.FC<RouteComponentProps> = ({path}) => {
+export const BalloonDetailsPage: React.FC<RouteComponentProps> = (props) => {
+  const test = useParams()
+  const balloon = api.balloons.find((balloon) => balloon.id === test.id)!
+
   const addToCart = () => {
-    let cart: Cart[] = JSON.parse(localStorage.getItem('cart') || '[]')
+    let cart: Balloon[] = JSON.parse(localStorage.getItem('cart') || '[]')
     if (cart.length <= 0) {
-      localStorage.setItem('cart', JSON.stringify([{id: 1, product: "Blue balloon", price: 1200}]))
+      cart.push(balloon)
     } else {
-      cart.push({id: 2, product: "red balloon", price: 12334})
-      localStorage.setItem('cart', JSON.stringify(cart))
+      cart.push(balloon)
     }
+    localStorage.setItem('cart', JSON.stringify(cart))
   }
 
   return(
-    <AppLayout>
+    <AppLayout title={balloon.name}>
       <div className={styles.detailsMain}>
-        <img src="" alt="" className={styles.detailsImage}/>
-
+        <img src={`https://balloons.thetc.se/${balloon.imageUrl}`} alt={`${balloon.color} balloon`} className={styles.detailsImage}/>
         <div className={styles.detailsDescription}>
-          <h2 className={styles.detailsTitle}>Big Ballon title</h2>
+
           <div className={styles.detailsInfo}>
             <ul>
-              <li>Description</li>
-              <li>color</li>
-              <li>variant</li>
-              <li>available since</li>
-              <li>price</li>
+              <li>{balloon.description}</li>
+              <li>Color: {balloon.color}</li>
+              <li>Variant: {balloon.variant}</li>
+              <li>Available since: {new Date(balloon.availableSince).toLocaleDateString()}</li>
             </ul>
-            <Quantity />
-            <button className={`buttonPrimary ${styles.button}`} onClick={addToCart}>Add to cart</button>
+            <Quantity price={balloon.price}/>
+            <div className={styles.checkoutWrapper}>
+              <button className={`buttonPrimary ${styles.button}`} onClick={addToCart}>Add to cart</button>
+            </div>
           </div>
         </div>
       </div>

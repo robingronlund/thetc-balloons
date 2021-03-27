@@ -11,6 +11,7 @@
   background-color: $color-button-primary;
 
   &:hover {
-    $color-button-primary-hover: #46b5ec;
+    background-color: $color-button-primary-hover;
+    color: white;
   }
 }

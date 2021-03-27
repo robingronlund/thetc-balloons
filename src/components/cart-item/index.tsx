@@ -1,24 +1,38 @@
 import React from 'react'
-import { Quantity } from '../quantity'
 
 import styles from './cart-item.module.scss'
 import '../../styles/components/card.scss'
 
-interface CartProps {
-  product: string
+interface Balloon {
+  id: string
+  name: string
+  imageUrl: string
+  description: string
+  color: string
+  variant: string
   price: number
+  availableSince: string
+  cursor: string
 }
 
-export const CartItem: React.FC<CartProps> = (props) => {
-  const { product, price} = props
+interface props {
+  balloon: Balloon
+  removeProduct: (event: string) => void
+}
+
+export const CartItem: React.FC<props> = (props) => {
+  const { balloon, removeProduct } = props
 
   return (
     <div className={`${styles.card} card`}>
-      <div className={styles.image}></div>
-      <div className={styles.details}>{product}</div>
-      <Quantity />
-      <div className={styles.price}>{price}</div>
-      <i className={`material-icons ${styles.remove}`} >remove_circle</i>
+      <img src={`https://balloons.thetc.se/${balloon.imageUrl}`} alt={`${balloon.color} balloon`} className={styles.image}/>
+      <div>
+        <h3>{balloon.name}</h3>
+        <div className={styles.details}>{balloon.description}</div>
+      </div>
+
+      <label className={styles.price}>{balloon.price} SEK</label>
+      <i className={`material-icons ${styles.remove}`} onClick={() => removeProduct(balloon.id)} >remove_circle</i>
     </div>
   )
 }

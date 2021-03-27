@@ -1,0 +1,33 @@
+@import "../../styles/colors.scss";
+
+.card {
+  flex-flow: column;
+  margin: 8px;
+  min-height: 440px;
+  max-width: 330px;
+  color: $color-primary-text;
+
+  & > p {
+    color: $color-secondary-text;
+  }
+
+  &:hover {
+    box-shadow: 0 4px 6px 4px #0000001a;
+  }
+}
+
+.image {
+  width: auto;
+  height: 200px;
+  border-radius: 4px;
+}
+
+.button {
+  height: 30px;
+  width: 150px;
+  background-color: $color-button-primary;
+
+  &:hover {
+    background-color: $color-button-primary-hover;
+  }
+}

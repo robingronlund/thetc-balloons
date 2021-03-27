@@ -3,23 +3,30 @@ import { CartItem } from '../cart-item'
 
 import styles from './cart-items-list.module.scss'
 
-interface Cart {
-  id: number
-  product: string
+interface Balloon {
+  id: string
+  name: string
+  imageUrl: string
+  description: string
+  color: string
+  variant: string
   price: number
+  availableSince: string
+  cursor: string
 }
 
 interface CartItemsListProps {
-  products: Cart[]
+  balloons: Balloon[]
+  removeProduct: (event: string) => void
 }
 
 export const CartItemsList: React.FC<CartItemsListProps> = (props) => {
-  const { products } = props
+  const { balloons, removeProduct  } = props
 
   return (
     <div className={styles.wrapper}>
-       { products.map((product) =>
-          <CartItem key={product.id} product={product.product} price={product.price}/>
+       { balloons.map((balloon, i) =>
+          <CartItem key={i} balloon={balloon} removeProduct={(id) => removeProduct(id)}/>
         )}
     </div>
   )

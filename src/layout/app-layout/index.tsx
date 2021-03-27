@@ -1,15 +1,20 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import { Header } from '../header'
 
 import styles from './app-layout.module.scss'
 
-export const AppLayout: React.FC = ({children}) => {
+interface props {
+  children: ReactNode
+  title?: string
+}
+
+export const AppLayout: React.FC<props> = ({children, title}) => {
   return (
     <div className={styles.pageContainer}>
       <Header></Header>
       <main className={styles.mainWrapper}>
         <div className={styles.contentWrapper}>
-          <h1>Big Title</h1>
+          <h1>{title}</h1>
           {children}
         </div>
       </main>
