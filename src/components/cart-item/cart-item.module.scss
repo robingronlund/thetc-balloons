@@ -3,6 +3,8 @@
 .card {
   display: flex;
   justify-content: space-between;
+  position: relative;
+
   &:not(:last-child) {
     border-bottom: 1px;
   }
