@@ -7,11 +7,27 @@
   justify-content: center;
 }
 
-.navWrapper {
+.filterWrapper {
   display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  width: 100%;
+  flex-flow: row;
+  justify-content: flex-end;
+
+  & > select {
+    &:first-child  {
+      margin-right: 32px;
+    }
+    &:last-child {
+      margin-left: 32px;
+    }
+  }
+}
+
+.navWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 42px;
 }
 
 .button {
@@ -21,6 +37,11 @@
 
   &:hover {
     background-color: $color-button-primary-hover;
+  }
+
+  & > i {
+    position: relative;
+    top: 8px;
   }
 }
 
