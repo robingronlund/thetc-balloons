@@ -3,11 +3,16 @@ import ReactDOM from 'react-dom';
 import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { Client, Provider } from "urql";
+
+const client = new Client({
+  url: 'https://balloons.thetc.se/graphql'
+})
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider value={client}>
     <App />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
 
