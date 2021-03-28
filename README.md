@@ -1,6 +1,4 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Balloons store
 
 ## Available Scripts
 
@@ -39,8 +37,10 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+### `npm run generate`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+This script will run the graphql-codegen tool and generate typescript types/interfaces/hooks.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Known bugs
+
+The filtering for the balloons is currently a bit buggy since it will not be able to properly display the selected value from the dropdowns. The filtering in it self works.
