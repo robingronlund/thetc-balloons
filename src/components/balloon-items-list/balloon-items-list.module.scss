@@ -1,13 +1,32 @@
-@import "../../styles/breakpoints.scss";
+@import "../../styles/colors.scss";
 
 .wrapper {
   display: flex;
   flex-direction: column;
-  flex: 1 0 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.navWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.button {
+  height: 30px;
+  width: 150px;
+  background-color: $color-button-primary;
+
+  &:hover {
+    background-color: $color-button-primary-hover;
+  }
 }
 
 .list {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   flex-grow: 1;
 }
@@ -15,11 +34,6 @@
 .item {
   display: flex;
   margin: 24px 0 0 0;
-
-  @include medium {
-    flex-flow: column;
-    flex-basis: 33%;
-  }
 
   &:last-child{
     justify-content: start;
