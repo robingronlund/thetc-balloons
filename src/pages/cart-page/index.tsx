@@ -39,6 +39,8 @@ export const CartPage: React.FC<RouteComponentProps> = (props) => {
 
   const placeOrder = () => {
     alert("Thank you for you order! Your balloons will be delivered shortly");
+    setState([])
+    localStorage.clear()
   };
 
   return (
