@@ -1,5 +1,5 @@
 import { Maybe } from 'graphql/jsutils/Maybe'
-import React, { MouseEvent } from 'react'
+import React from 'react'
 import { BalloonConnection, BalloonEdge } from '../../queries/autogenerate/schemas'
 import { BalloonItem } from '../balloon-item'
 
