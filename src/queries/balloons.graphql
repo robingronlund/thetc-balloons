@@ -1,0 +1,23 @@
+query balloons($filter: FilterInput, $sort: SortInput, $before: ID, $after: ID) {
+  balloons(filter: $filter, sort: $sort, before: $before, after: $after) {
+    edges {
+      node {
+        id
+        name
+        color
+        imageUrl
+        description
+        variant
+        price
+        availableSince
+      }
+      cursor
+    }
+    pageInfo {
+      startCursor
+      endCursor
+      hasPreviousPage
+      hasNextPage
+    }
+  }
+}

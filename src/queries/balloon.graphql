@@ -1,0 +1,12 @@
+query balloon($id: String!) {
+  balloon(id: $id) {
+    id
+    name
+    color
+    imageUrl
+    description
+    variant
+    price
+    availableSince
+  }
+}

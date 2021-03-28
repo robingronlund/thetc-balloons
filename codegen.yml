@@ -1,0 +1,32 @@
+schema: https://balloons.thetc.se/graphql
+overwrite: true
+generates:
+  # Get schemas from server
+  src/queries/autogenerate/schemas.tsx:
+    documents: 'src/queries/**/**.graphql'
+    plugins:
+      - typescript
+
+  # Create operations based on queries
+  src/queries/autogenerate/operations.tsx:
+    documents: 'src/queries/**/**.graphql'
+    preset: import-types
+    presetConfig:
+      typesPath: ./schemas
+    plugins:
+      - typescript-operations
+
+  # 1. Export GraphQL documents
+  # 2. React interface
+  src/queries/autogenerate/hooks.tsx:
+    documents: 'src/queries/**/**.graphql'
+    preset: import-types
+    presetConfig:
+      typesPath: ./operations
+    plugins:
+      - typescript-urql
+    config:
+      # Optionals
+      withHOC: false
+      withComponent: false
+      withHooks: true
