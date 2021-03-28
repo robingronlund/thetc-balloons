@@ -19,7 +19,6 @@
 .image {
   width: auto;
   height: 80px;
-  background-color: blue;
   border-radius: 4px;
 }
 
@@ -27,9 +26,27 @@
   display: flex;
   flex-flow: column;
   align-items: flex-start;
-  margin-left: 12px;
   margin-right: auto;
-  color: #737171;
+  margin-left: 12px;
+  color: $color-primary-text;
+
+  & > h3 {
+    margin-bottom: 0;
+  }
+}
+
+.priceWrapper {
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  color: $color-secondary-text;
+
+  & > label > span {
+    color: $color-primary-text;
+    font-weight: 500;
+    font-size: 18px;
+  }
 }
 
 .price {
@@ -43,6 +60,6 @@
   position: absolute;
   top: 24px;
   right: 24px;
-  color: #e0e4e6;
+  color: $color-icon;
   cursor: pointer;
 }

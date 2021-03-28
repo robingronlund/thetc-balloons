@@ -13,6 +13,7 @@ interface Balloon {
   price: number
   availableSince: string
   cursor: string
+  quantity?: number
 }
 
 interface props {
@@ -26,12 +27,14 @@ export const CartItem: React.FC<props> = (props) => {
   return (
     <div className={`${styles.card} card`}>
       <img src={`https://balloons.thetc.se/${balloon.imageUrl}`} alt={`${balloon.color} balloon`} className={styles.image}/>
-      <div>
+      <div className={styles.details}>
         <h3>{balloon.name}</h3>
-        <div className={styles.details}>{balloon.description}</div>
+        <p>{balloon.description}</p>
       </div>
-
-      <label className={styles.price}>{balloon.price} SEK</label>
+      <div className={styles.priceWrapper}>
+        <label>Quantity: <span>{balloon.quantity}</span></label>
+        <label>Price: <span>{balloon.price} SEK</span></label>
+      </div>
       <i className={`material-icons ${styles.remove}`} onClick={() => removeProduct(balloon.id)} >remove_circle</i>
     </div>
   )

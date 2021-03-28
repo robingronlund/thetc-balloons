@@ -13,6 +13,7 @@ interface Balloon {
   price: number
   availableSince: string
   cursor: string
+  quantity?: number
 }
 
 interface CartItemsListProps {

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ChangeEvent, useEffect, useState } from 'react'
 import { RouteComponentProps, useParams } from "@reach/router";
 import { AppLayout } from '../../layout/app-layout';
 
@@ -17,21 +17,60 @@ interface Balloon {
   price: number
   availableSince: string
   cursor: string
+  quantity?: number
 }
 
 export const BalloonDetailsPage: React.FC<RouteComponentProps> = (props) => {
   const test = useParams()
-  const balloon = api.balloons.find((balloon) => balloon.id === test.id)!
+  const balloon: Balloon = api.balloons.find((balloon) => balloon.id === test.id)!
+  const [qty, setQty] = useState(1)
+  const [cost, setCost] = useState(balloon.price)
 
   const addToCart = () => {
-    let cart: Balloon[] = JSON.parse(localStorage.getItem('cart') || '[]')
-    if (cart.length <= 0) {
-      cart.push(balloon)
+    const products: Balloon[] = JSON.parse(localStorage.getItem('cart') || "[]")
+
+    const hello: Balloon = products.find((product) => {
+      return product.id === balloon.id
+    })!
+
+    if (hello) {
+      hello.quantity = hello.quantity ? hello.quantity + qty : qty
+      hello.price = hello.price + cost
     } else {
-      cart.push(balloon)
+      balloon.quantity = qty
+      balloon.price = cost
+      products.push(balloon)
     }
-    localStorage.setItem('cart', JSON.stringify(cart))
+
+    localStorage.setItem('cart', JSON.stringify(products))
+    alert("Great! Balloon(s) have been added to the cart")
   }
+
+  const increment = () => {
+    setQty(qty+1)
+  }
+
+  const decrement = () => {
+    setQty(qty-1)
+  }
+
+  const change = (e: ChangeEvent<HTMLInputElement>) => {
+    let value = parseInt(e.target.value) || 1
+
+    if (value > 10) {
+      setQty(10)
+    } else {
+      setQty(value)
+    }
+  }
+
+  useEffect(() => {
+    setCost(balloon.price * qty)
+
+    return () => {
+      setCost(balloon.price)
+    }
+  }, [qty, balloon.price])
 
   return(
     <AppLayout title={balloon.name}>
@@ -46,7 +85,17 @@ export const BalloonDetailsPage: React.FC<RouteComponentProps> = (props) => {
               <li>Variant: {balloon.variant}</li>
               <li>Available since: {new Date(balloon.availableSince).toLocaleDateString()}</li>
             </ul>
-            <Quantity price={balloon.price}/>
+            <div className={styles.priceWrapper}>
+              <div className={styles.outerWrapper}>
+                <label>Quantity</label>
+                <div className={styles.inputWrapper}>
+                  <button type="button" disabled={qty === 1 } onClick={decrement} className={styles.spin}>-</button>
+                  <input type="number" max="10" min="1" value={qty} onChange={(e) => change(e)} className={styles.input} />
+                  <button type="button" disabled={qty === 10 } onClick={increment} className={styles.spin}>+</button>
+                </div>
+              </div>
+              <label>{cost} SEK</label>
+            </div>
             <div className={styles.checkoutWrapper}>
               <button className={`buttonPrimary ${styles.button}`} onClick={addToCart}>Add to cart</button>
             </div>
