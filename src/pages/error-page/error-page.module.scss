@@ -1,0 +1,22 @@
+@import "../../styles/colors.scss";
+
+.wrapper {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  padding-top: 62px;
+
+  & > p {
+    color: $color-primary-text;
+  }
+}
+
+.balloon {
+  height: 40px;
+  width: auto;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
