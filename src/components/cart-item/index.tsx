@@ -16,26 +16,28 @@ interface Balloon {
   quantity?: number
 }
 
-interface props {
-  balloon: Balloon
+interface CartItemProps {
+  node: Balloon
   removeProduct: (event: string) => void
+  quantity?: number
+  cost?: number
 }
 
-export const CartItem: React.FC<props> = (props) => {
-  const { balloon, removeProduct } = props
+export const CartItem: React.FC<CartItemProps> = (props) => {
+  const { node, cost, quantity, removeProduct } = props
 
   return (
     <div className={`${styles.card} card`}>
-      <img src={`https://balloons.thetc.se/${balloon.imageUrl}`} alt={`${balloon.color} balloon`} className={styles.image}/>
+      <img src={`https://balloons.thetc.se/${node.imageUrl}`} alt={`${node.color} balloon`} className={styles.image}/>
       <div className={styles.details}>
-        <h3>{balloon.name}</h3>
-        <p>{balloon.description}</p>
+        <h3>{node.name}</h3>
+        <p>{node.description}</p>
       </div>
       <div className={styles.priceWrapper}>
-        <label>Quantity: <span>{balloon.quantity}</span></label>
-        <label>Price: <span>{balloon.price} SEK</span></label>
+        <label>Quantity: <span>{quantity}</span></label>
+        <label>Price: <span>{cost} SEK</span></label>
       </div>
-      <i className={`material-icons ${styles.remove}`} onClick={() => removeProduct(balloon.id)} >remove_circle</i>
+      <i className={`material-icons ${styles.remove}`} onClick={() => removeProduct(node.id)} >remove_circle</i>
     </div>
   )
 }

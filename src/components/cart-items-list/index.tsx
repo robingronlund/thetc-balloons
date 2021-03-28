@@ -16,8 +16,14 @@ interface Balloon {
   quantity?: number
 }
 
+interface BallonDetails {
+  node: Balloon
+  quantity?: number
+  cost?: number
+}
+
 interface CartItemsListProps {
-  balloons: Balloon[]
+  balloons: BallonDetails[]
   removeProduct: (event: string) => void
 }
 
@@ -27,7 +33,7 @@ export const CartItemsList: React.FC<CartItemsListProps> = (props) => {
   return (
     <div className={styles.wrapper}>
        { balloons.map((balloon, i) =>
-          <CartItem key={i} balloon={balloon} removeProduct={(id) => removeProduct(id)}/>
+          <CartItem key={i} node={balloon.node} cost={balloon.cost} quantity={balloon.quantity} removeProduct={(id) => removeProduct(id)}/>
         )}
     </div>
   )

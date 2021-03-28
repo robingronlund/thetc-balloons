@@ -21,11 +21,17 @@ interface Balloon {
   quantity?: number
 }
 
+interface BallonDetails {
+  node: Balloon
+  quantity?: number
+  cost?: number
+}
+
 export const CartPage: React.FC<RouteComponentProps> = (props) => {
-  const [state, setState] = useState<Balloon[]>(JSON.parse(localStorage.getItem('cart') || '[]'))
+  const [state, setState] = useState<BallonDetails[]>(JSON.parse(localStorage.getItem('cart') || '[]'))
 
   const removeProduct = (id: string) => {
-    const balloons = state.filter((balloon) => balloon.id !== id)
+    const balloons = state.filter((balloon) => balloon.node.id !== id)
     setState(balloons)
     localStorage.setItem('cart', JSON.stringify(balloons))
   }
@@ -35,14 +41,14 @@ export const CartPage: React.FC<RouteComponentProps> = (props) => {
   }
 
   return (
-    <AppLayout title="Checkout">
+    <AppLayout title="Checkout" displayNav={true} navTitle="Balloons">
       {state.length > 0
       ?
       <div>
-          <CartItemsList balloons={state} removeProduct={(id) => removeProduct(id)}/>
-          <div className={styles.actions}>
-            <button className={`buttonPrimary ${styles.button}`} onClick={placeOrder}>Place order</button>
-          </div>
+        <CartItemsList balloons={state} removeProduct={(id) => removeProduct(id)}/>
+        <div className={styles.actions}>
+          <button className={`buttonPrimary ${styles.button}`} onClick={placeOrder}>Place order</button>
+        </div>
       </div>
       :
       <EmptyCart></EmptyCart>
