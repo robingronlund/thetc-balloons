@@ -30,7 +30,6 @@ export const BalloonDetailsPage: React.FC<RouteComponentProps> = () => {
           variant={response.data?.balloon?.variant!}
           availableSince={response.data?.balloon?.availableSince} />
       }
-
     </AppLayout>
   )
 }
